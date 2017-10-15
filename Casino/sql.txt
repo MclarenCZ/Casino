@@ -1,0 +1,11 @@
+select player_inventory.id from players,player_inventory where player_inventory.id == players.id
+
+select items.name,items.value from player_inventory join items on player_inventory.item_id = items.id
+
+select items.name,items.value from player_inventory join items on player_inventory.item_id = items.id and player_inventory.id == 1
+
+select * from invdev join item_type where invdev.type_id == item_type.id
+
+create view inventoryall as select player_inventory.id as player_id,items.id as item_id,items.name,items.value,items.type_id from player_inventory join items on player_inventory.item_id = items.id
+
+select * from inventoryall join item_type on inventoryall.type_id == item_type.id
